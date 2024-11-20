@@ -37,7 +37,7 @@ class VagonPasajeros{
         // El peso máximo de un vagón de pasajeros se calcula así: 2000 kilos, más 80 kilos por cada pasajero, más el máximo de carga que puede llevar.
         
         let kBaños = this.tieneBaño ? 300 : 800;
-        let kPasajeros = this.capacidadPasajeros() * 80
+        let kPasajeros = this.maxPasajeros() * 80
         return 2000 + kPasajeros + kBaños;
     }
 }
@@ -58,11 +58,11 @@ class Deposito{
 
     addLocomotoraFormacion(formacion,...locomotoras){
         if (formacion in this.formaciones){
-            formacion.locomotora.append(...locomotoras) // deberiamos verificar si las locomotora no estan en otra formacion.
+            formacion.locomotora.push(...locomotoras) // deberiamos verificar si las locomotora no estan en otra formacion.
         }
     }
 }
 
 
 
-export { Formacion, Locomotora, Vagon, Deposito, VagonPasajeros}
+export {Formacion, Locomotora, Vagon, Deposito, VagonPasajeros};
